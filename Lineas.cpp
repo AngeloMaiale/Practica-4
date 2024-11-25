@@ -15,11 +15,15 @@ int linea(Point p1, Point q1, Point p2, Point q2) {
     int o2 = orientacion(p1, q1, q2);
     int o3 = orientacion(p2, q2, p1);
     int o4 = orientacion(p2, q2, q1);
+    double dx1 = q1.x - p1.x;
+    double dy1 = q1.y - p1.y;
+    double dx2 = q2.x - p2.x;
+    double dy2 = q2.y - p2.y;
 
     if (o1 != o2 && o3 != o4) {
         return 1;
     } 
-    if (o1 == 0 && o2 == 0 && o3 == 0 && o4 == 0) {
+    else if (dx1 * dy2 == dx2 * dy1) {
         return 0;
     } 
     else {
